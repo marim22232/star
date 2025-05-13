@@ -1,35 +1,22 @@
-<?php
-// Проверяем, что запрос был выполнен методом POST
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Получаем данные из формы
+<?php 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') { 
     $name = $_POST['name'];
     $email = $_POST['email'];
-    $message = $_POST['message'];
-
-    // Проверка данных (например, на безопасность)
-    if (!empty($name) && !empty($email) && !empty($message)) {
-        // Здесь может быть логика для отправки email
-        // Для простоты, просто отправим письмо
-
-        $to = "admin@example.com";  // Замените на реальный email для получения сообщений
+    $message = $_POST['message']; 
+    if (!empty($name) && !empty($email) && !empty($message)) { 
+        $to = "admin@example.com";  
         $subject = "Новое сообщение с сайта";
         $body = "Имя: $name\nEmail: $email\nСообщение:\n$message";
-        $headers = "From: $email";
-
-        // Отправляем письмо
-        if (mail($to, $subject, $body, $headers)) {
-            // Ответ, если письмо отправлено успешно
+        $headers = "From: $email"; 
+        if (mail($to, $subject, $body, $headers)) { 
             echo "Спасибо за ваше сообщение!";
-        } else {
-            // Ответ в случае ошибки при отправке письма
+        } else { 
             echo "Ошибка при отправке сообщения.";
         }
-    } else {
-        // Ответ, если данные формы неполные
+    } else { 
         echo "Пожалуйста, заполните все поля.";
     }
-} else {
-    // Если запрос не POST, выводим ошибку
+} else { 
     echo "Ошибка: неверный метод запроса.";
 }
 ?>
