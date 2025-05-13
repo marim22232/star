@@ -1,4 +1,36 @@
-nav a.active {
-    font-weight: bold;
-    color: #f00;
+form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto;
 }
+
+form label {
+    margin-bottom: 5px;
+}
+
+form input, form textarea {
+    padding: 8px;
+    margin-bottom: 10px;
+    width: 100%;  
+}
+
+form button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+/* Мобильная адаптивность */
+@media (max-width: 480px) {
+    form {
+        width: 90%;  
+    }
+}
+
